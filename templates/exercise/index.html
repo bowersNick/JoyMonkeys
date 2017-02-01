@@ -1,0 +1,16 @@
+{% extends 'exercise/base.html' %}
+
+{% block main_content %}
+    <h1>Choose a user</h1>
+    {% if latest_user_list %}
+        <ul>
+            {% for user in latest_user_list %}
+                <li><a href="{% url 'exercise:detail' user.id %}">{{ user.user_name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users are available.</p>
+    {% endif %}
+
+    <button class="btn btn-success">Add a new user</button>
+{% endblock %}

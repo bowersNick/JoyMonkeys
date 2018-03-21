@@ -5,9 +5,11 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import User, Workout
 
+
 class WorkoutInline(admin.TabularInline):
     model = Workout
     extra = 3
+
 
 class UserAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -15,4 +17,6 @@ class UserAdmin(admin.ModelAdmin):
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     inlines = [WorkoutInline]
+
+
 admin.site.register(User, UserAdmin)
